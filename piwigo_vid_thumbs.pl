@@ -11,6 +11,8 @@
 #
 # scheudle in cron:
 # perl /directory/to/script/piwigo_vid_thumbs.pl --base_url=https://yoursite.com --user=cron --password=1234 
+#
+# ref: https://github.com/xbgmsharp/piwigo-videojs/issues/44
 
 use strict;
 use warnings;
