@@ -13,8 +13,31 @@ rsync -rvhti --stats --progress --checksum --partial-dir=.rsync-partial "/Volume
 do now=$(date +"%T") ; echo · Error at $now · ; sleep 60 ; done
 ```
 
-## piwigo_refresh.pl
+### Sync imagery from small HD to dreamhost
+```bash
+while ! rsync -rvhti --stats --progress --partial-dir=.rsync-partial "/Volumes/DW Untethered/Imagery/" -e ssh username@lebanon.dreamhost.com:/home/username/mysite.com/galleries/ ; \
+do now=$(date +"%T") ; echo · Error at $now · ; sleep 60 ; done
+```
+
+### Sync source video files from small HD to dreamhost
+```bash
+while ! rsync -rvhti --stats --progress --partial "/Volumes/DW Untethered/Files/VideoSource/" -e ssh username@lebanon.dreamhost.com:/home/username/mysite.com/VideoSource/ ; \
+do now=$(date +"%T") ; echo · Error at $now · ; sleep 60 ; done
+```
+
+### Sync files from small HD to big HD
+```bash
+while ! rsync -rvhti --stats --progress --partial-dir=.rsync-partial "/Volumes/DW Untethered/Files/" "/Volumes/Welsh Imagery/Files/" ; do now=$(date +"%T") ; echo · Error at $now · ; sleep 60 ; done
+```
+
+### Sync imagery from small HD to big HD
+```bash
+while ! rsync -rvhti --stats --progress --partial-dir=.rsync-partial "/Volumes/DW Untethered/Imagery/" "/Volumes/Welsh Imagery/Imagery/" ; do now=$(date +"%T") ; echo · Error at $now · ; sleep 60 ; done
+```
+
+## Scripts
+### piwigo_refresh.pl
 Script originally from https://piwigo.org/ext/extension_view.php?eid=855 but customized for my use. This takes the files from my server directory and imports them into Piwigo (run frequently by cron).
 
-## piwigo_vid_thumbs.pl
+### piwigo_vid_thumbs.pl
 Modified copy of the piwigo_refresh.pl script, but using the VideoJS extension interface. This makes screenshot "posters" for video files in Piwigo (run frequently by cron).
