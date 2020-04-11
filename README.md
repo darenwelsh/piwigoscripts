@@ -36,17 +36,24 @@ while ! rsync -rvhti --stats --progress --partial-dir=.rsync-partial "/Volumes/D
 ```
 
 ### INSTA360 - Sync imagery from Insta360 SD Card "Untitled" to small HD
+```bash
 rsync -rvhti --stats --progress --partial-dir=.rsync-partial "/Volumes/Untitled/DCIM/" "/Volumes/DW Untethered/Imagery/Insta360/" --dry-run
+```
 
 ### DSLR -  Sync JPGs from EOS_DIGITAL SD Card "EOS_DIGITAL" to small HD
+```bash
 rsync -rvhti --stats --progress --partial-dir=.rsync-partial "/Volumes/EOS_DIGITAL/DCIM/100CANON/" "/Volumes/DW Untethered/Imagery/6DMII/Images/" --include="*/" --include="*.JPG" --exclude="*" --dry-run
+```
 
 ### DSLR -  Sync Raw Images from EOS_DIGITAL SD Card "EOS_DIGITAL" to small HD
+```bash
 rsync -rvhti --stats --progress --partial-dir=.rsync-partial "/Volumes/EOS_DIGITAL/DCIM/100CANON/" "/Volumes/DW Untethered/Imagery/6DMII/Raw Images/" --include="*/" --include="*.CR2" --exclude="*" --dry-run
+```
 
 ### DSLR -  Sync Videos from EOS_DIGITAL SD Card "EOS_DIGITAL" to small HD
+```bash
 rsync -rvhti --stats --progress --partial-dir=.rsync-partial "/Volumes/EOS_DIGITAL/DCIM/100CANON/" "/Volumes/DW Untethered/Imagery/6DMII/Videos" --include="*/" --include="*.M*" --exclude="*" --dry-run
-
+```
 
 ## Scripts
 ### piwigo_refresh.pl
